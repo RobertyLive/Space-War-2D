@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    public float speed, speedToRotation;
 
     private float control;
+
+    public float maxX, maxY;
 
     private void Update()
     {
         control = Input.GetAxis("Vertical");
+        Rotate();
+        Teleport();
     }
 
     private void FixedUpdate()
     {
         Move();
-        Rotate();
     }
 
     private void Move()
@@ -28,12 +31,33 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(transform.rotation.x, transform.rotation.y, speed);
+            transform.Rotate(transform.rotation.x, transform.rotation.y, speedToRotation * Time.deltaTime);
         }
 
         if(Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(transform.rotation.x, transform.rotation.y, -speed);
+            transform.Rotate(transform.rotation.x, transform.rotation.y, -speedToRotation * Time.deltaTime);
+        }
+    }
+
+    private void Teleport()
+    {
+        if(transform.position.x > maxX)
+        {
+            transform.position = new Vector2(-maxX, transform.position.y);
+        }
+        else if(transform.position.x < -maxX)
+        {
+            transform.position = new Vector2(maxX, transform.position.y);
+        }
+
+        if(transform.position.y > maxY)
+        {
+            transform.position = new Vector2(transform.position.x, -maxY);
+        }
+        else if(transform.position.y < -maxY)
+        {
+            transform.position = new Vector2(transform.position.x, maxY);
         }
     }
 }
