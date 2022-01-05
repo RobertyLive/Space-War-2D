@@ -6,6 +6,10 @@ TagManager:
   tags:
   - DestroyBullet
   - Bullet
+  - Meteoro
+  - MeteoroMedium
+  - MeteoroCinza
+  - MeteoroMediumCinza
   layers:
   - Default
   - TransparentFX

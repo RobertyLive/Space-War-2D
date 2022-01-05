@@ -12,6 +12,7 @@ public class Gun : MonoBehaviour
 
     private GameObject _bullet;
     private Rigidbody2D _rb;
+    
 
     public void Update()
     {
@@ -27,6 +28,6 @@ public class Gun : MonoBehaviour
 
         _rb = _bullet.GetComponent<Rigidbody2D>();
 
-        _rb.AddForce(GunShooter.up * speedBullet, ForceMode2D.Impulse);   
+        _rb.AddForce(GunShooter.up * speedBullet, ForceMode2D.Impulse);
     }
 }

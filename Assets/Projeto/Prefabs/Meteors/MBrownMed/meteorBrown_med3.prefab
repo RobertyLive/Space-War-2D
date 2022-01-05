@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 2358356392744648298}
   - component: {fileID: 2358356392744648299}
   - component: {fileID: 1242159650502770803}
+  - component: {fileID: 749420014016499117}
+  - component: {fileID: 2100672740545490142}
   m_Layer: 0
   m_Name: meteorBrown_med3
-  m_TagString: Untagged
+  m_TagString: MeteoroMedium
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,3 +106,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &749420014016499117
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358356392744648297}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.0058072805}
+  serializedVersion: 2
+  m_Radius: 0.18144643
+--- !u!114 &2100672740545490142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358356392744648297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 265132ea77c9aae4dbf88d4e5d3a94b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

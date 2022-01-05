@@ -24,27 +24,39 @@ public class SpawnedObjects : MonoBehaviour
     [Header("Player")]
     public Transform player;
 
-    public float time, timeSpawn = 2f;
+    public float time, timeSpawn = 2f, size;
+
+    private GameObject obj, obj2;
 
 
     public void Update()
     {
-        time = Time.time;
-
-
-        //this.gameObject.transform.right = player.transform.position;
-        Vector2 posPlayer = player.position;
         
+
+        time = Time.time;
         if(time > timeSpawn)
         {
-            var obj = Instantiate(meteorosBrownBIG[Random.Range(0, meteorosBrownBIG.Count)], posicoes[Random.Range(0, posicoes.Length)].position, Quaternion.identity);
-            var obj2 = Instantiate(meteorosGreyBIG[Random.Range(0, meteorosGreyBIG.Count)], posicoes[Random.Range(0, posicoes.Length)].position, Quaternion.identity);
+            obj = Instantiate(meteorosBrownBIG[Random.Range(0, meteorosBrownBIG.Count)], posicoes[Random.Range(0, posicoes.Length)].position, Quaternion.identity);
+            obj2 = Instantiate(meteorosGreyBIG[Random.Range(0, meteorosGreyBIG.Count)], posicoes[Random.Range(0, posicoes.Length)].position, Quaternion.identity);
             
-
             obj.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10)) * speed * Time.deltaTime;
             obj2.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10)) * speed * Time.deltaTime;
 
-            timeSpawn = time + 2;
+            timeSpawn = time + size;
+
+            if(time >= 10 && time <= 20)
+            {
+                size = 1;
+            }
+            else if(time >= 20 && time <= 30)
+            {
+                size = 0.5f;
+            }
+            else if(time >= 30)
+            {
+                size = 0.1f;
+            }
         }
     }
+
 }

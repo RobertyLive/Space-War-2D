@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 3628582718829132972}
   - component: {fileID: 3628582718829132971}
   - component: {fileID: -8463560657911722604}
+  - component: {fileID: 196787474514647757}
+  - component: {fileID: 6841635680870383959}
   m_Layer: 0
   m_Name: meteorGrey_big4
-  m_TagString: Untagged
+  m_TagString: MeteoroCinza
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,3 +106,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &196787474514647757
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3628582718829132973}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.026965857}
+  serializedVersion: 2
+  m_Radius: 0.41227484
+--- !u!114 &6841635680870383959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3628582718829132973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 265132ea77c9aae4dbf88d4e5d3a94b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
