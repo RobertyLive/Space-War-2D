@@ -2,41 +2,77 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : PlayerController
+public class Player : MonoBehaviour
 {
    
     public Gun gun;
+    public float speedToRotation;
+    public float speed;
+    public bool isRot;
+
+    
+    public float maxX, maxY;
 
     private void Start() {
         gun = GetComponent<Gun>();
     }
 
+    private void Update() {
+        Touch();
+        Teleport();
+        
+    }
+
     void Touch()
     {
-        Vector2 camPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        
-        if(Input.GetMouseButtonDown(0))
+        gun.Shoot();
+
+        if(Input.GetMouseButton(0) && isRot)
         {
-            if(camPos.x < Screen.width /2)
+            if(Input.mousePosition.x > Screen.height / 2)
             {
-                if(camPos.x / 2 > 0)
-                {
-                    transform.Rotate(transform.rotation.x, transform.rotation.y, -speedToRotation * Time.deltaTime);
-                }
-                else
-                {
-                    transform.Rotate(transform.rotation.x, transform.rotation.y, speedToRotation * Time.deltaTime);
-                }
+                transform.Rotate(transform.rotation.x, transform.rotation.y, -speedToRotation * Time.deltaTime);
+            }
+            else
+            {
+                transform.Rotate(transform.rotation.x, transform.rotation.y, speedToRotation * Time.deltaTime);
             }
         }
 
         if(Input.GetMouseButton(1))
         {
-            if(camPos.x > Screen.width /2)
-            {
-                gun.Shoot();
-                Move();
-            }
+            isRot = false;
+            Move();    
+        }
+        if(Input.GetMouseButtonUp(1))
+        {
+            isRot = true;
+        }
+    }
+
+    void Move()
+    {
+        transform.Translate(Vector2.up * Time.deltaTime * speed);
+    }
+
+    private void Teleport()
+    {
+        if(transform.position.x > maxX)
+        {
+            transform.position = new Vector2(-maxX, transform.position.y);
+        }
+        else if(transform.position.x < -maxX)
+        {
+            transform.position = new Vector2(maxX, transform.position.y);
+        }
+
+        if(transform.position.y > maxY)
+        {
+            transform.position = new Vector2(transform.position.x, -maxY);
+        }
+        else if(transform.position.y < -maxY)
+        {
+            transform.position = new Vector2(transform.position.x, maxY);
         }
     }
 }

@@ -76,7 +76,6 @@ public class Cool : MonoBehaviour
         if(other.gameObject.tag == "DestroyBullet")
         {
             Destroy(this.gameObject);
-            Debug.Log("Q");
         }
     }
 }

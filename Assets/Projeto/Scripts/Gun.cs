@@ -16,10 +16,10 @@ public class Gun : MonoBehaviour
 
     public void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
-        {
-           Shoot();       
-        }
+        // if(Input.GetButtonDown("Fire1"))
+        // {
+        //    Shoot();       
+        // }
     }
 
     public void Shoot()
@@ -29,5 +29,7 @@ public class Gun : MonoBehaviour
         _rb = _bullet.GetComponent<Rigidbody2D>();
 
         _rb.AddForce(GunShooter.up * speedBullet, ForceMode2D.Impulse);
+
+        Destroy(_bullet, 0.5f);
     }
 }
