@@ -22,12 +22,12 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
-    private void Move()
+    public void Move()
     {
         transform.Translate(Vector2.up * Time.deltaTime * speed * control);
     }
 
-    private void Rotate()
+    public void Rotate()
     {
         if(Input.GetKey(KeyCode.A))
         {
